@@ -6,6 +6,9 @@ from statistics import mean
 from plotly.express import line
 
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 API_KEY = os.getenv("APLPHAVANTAGE_API_KEY")
 
@@ -31,3 +34,18 @@ print("LATEST UNEMPLOYMENT RATE:")
 print(f"{data[0]['value']}%", "as of", data[0]["date"])
 
 
+# Challenge B
+# 
+# What is the average unemployment rate for all months during this calendar year?
+# ... How many months does this cover?
+
+from statistics import mean
+
+this_year = [d for d in data if "2022-" in d["date"]]
+
+rates_this_year = [float(d["value"]) for d in this_year]
+#print(rates_this_year)
+
+print("-------------------------")
+print("AVG UNEMPLOYMENT THIS YEAR:", f"{mean(rates_this_year)}%")
+print("NO MONTHS:", len(this_year))
