@@ -3,6 +3,6 @@
 
 ##Usage
 
-'''sh
+```sh
 python app/my_script.py
-'''
+```
