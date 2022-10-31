@@ -2,6 +2,8 @@
 import os
 import json
 from pprint import pprint
+from statistics import mean
+from plotly.express import line
 
 import requests
 
@@ -16,11 +18,16 @@ parsed_response = json.loads(response.text)
 print(type(parsed_response))
 pprint(parsed_response)
 
+data = parsed_response["data"]
 
 # Challenge A
 #
 # What is the most recent unemployment rate? And the corresponding date? 
 # Display the unemployment rate using a percent sign.
 
-latest = parsed_response["data"][0]
-print(latest)
+print("-------------------------")
+print("LATEST UNEMPLOYMENT RATE:")
+#print(data[0])
+print(f"{data[0]['value']}%", "as of", data[0]["date"])
+
+
