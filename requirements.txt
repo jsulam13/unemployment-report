@@ -11,6 +11,9 @@ sendgrid==6.6.0
 #for our web app interface:
 flask
 
+#heroku server needs this package to run our web app
+gunicorn
+
 # using this to find and run out tests
 pytest
 
